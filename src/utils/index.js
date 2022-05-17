@@ -26,3 +26,5 @@ export const isCep = (cep) => {
 
   return false;
 };
+
+export const timeExp = 60 * 5;
