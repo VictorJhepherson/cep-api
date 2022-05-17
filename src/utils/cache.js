@@ -20,7 +20,7 @@ class Cache {
   }
 
   set(key, value, timeExp) {
-    return this.client.set(key, JSON.stringify(value), timeExp);
+    return this.client.setEx(key, timeExp, JSON.stringify(value));
   }
 }
 

@@ -6,7 +6,7 @@
       "version": "1.0"
     },
     "host": "localhost:4000",
-    "basePath": "/info",
+    "basePath": "/",
     "schemes": [
       "http"
     ],
@@ -99,6 +99,12 @@
           "description": "Find CEP",
           "parameters": [
             {
+              "in": "header",
+              "name": "authorization",
+              "required": "true",
+              "type": "string"
+            },
+            {
               "in": "body",
               "name": "Cep",
               "description": "Find CEP",
@@ -121,6 +127,23 @@
             },
             "400": {
               "description": "Erro.message"
+            },
+            "401": {
+              "description": "Unauthorized"
+            },
+            "500": {
+              "description": "Generic Error"
+            }
+          }
+        }
+      },
+      "/info/": {
+        "get": {
+          "summary": "Ready",
+          "description": "Ready API",
+          "responses": {
+            "200": {
+              "description": "Ready success"
             },
             "500": {
               "description": "Generic Error"
