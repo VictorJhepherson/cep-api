@@ -4,8 +4,8 @@ import { cepValidator } from '../errors/errors';
 import { timeExp } from '../utils';
 
 export const searchCep = async (cep) => {
+  const IResult = { success: true, data: '', errors: [] };
   try {
-    const IResult = { success: true, data: '', errors: [] };
     const valid = cepValidator(cep);
 
     if (valid.success) {
@@ -29,6 +29,10 @@ export const searchCep = async (cep) => {
     IResult.errors = valid.errors;
     return IResult;
   } catch (e) {
-    console.log(e);
+    if (e instanceof Error) {
+      IResult.success = false;
+      IResult.errors.push(e.message);
+      return IResult;
+    }
   }
 };

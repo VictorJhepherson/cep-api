@@ -24,7 +24,14 @@ class userController {
         errors: IResult.errors,
       });
     } catch (e) {
-      console.log(e);
+      if (e instanceof Error) {
+        return res.status(500).send({
+          success: false,
+          data: '',
+          token: '',
+          errors: [e.message],
+        });
+      }
     }
   }
 
@@ -58,7 +65,14 @@ class userController {
         errors: IResult.errors,
       });
     } catch (e) {
-      console.log(e);
+      if (e instanceof Error) {
+        return res.status(500).send({
+          success: false,
+          data: '',
+          token: '',
+          errors: [e.message],
+        });
+      }
     }
   }
 }

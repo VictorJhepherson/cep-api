@@ -7,12 +7,14 @@ import swaggerFile from '../src/documentation/swagger.json';
 
 import rotaUser from './routes/userRoutes';
 import rotaCep from './routes/cepRoutes';
+import rotaInfo from './routes/infoRoutes';
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerFile));
+app.use('/info', rotaInfo);
 app.use('/users', rotaUser);
 app.use('/cep', rotaCep);
 

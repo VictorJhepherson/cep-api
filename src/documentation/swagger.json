@@ -6,7 +6,7 @@
       "version": "1.0"
     },
     "host": "localhost:4000",
-    "basePath": "/",
+    "basePath": "/info",
     "schemes": [
       "http"
     ],
@@ -47,6 +47,9 @@
             },
             "400": {
               "description": "Erro.message"
+            },
+            "500": {
+              "description": "Generic Error"
             }
           }
         }
@@ -83,6 +86,9 @@
             },
             "400": {
               "description": "Erro.message"
+            },
+            "500": {
+              "description": "Generic Error"
             }
           }
         }
@@ -115,6 +121,9 @@
             },
             "400": {
               "description": "Erro.message"
+            },
+            "500": {
+              "description": "Generic Error"
             }
           }
         }

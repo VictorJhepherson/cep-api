@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 export const isEmpty = (data) => {
   if (data === undefined || data === '') return true;
 
@@ -28,3 +31,15 @@ export const isCep = (cep) => {
 };
 
 export const timeExp = 60 * 5;
+
+export const infoAPI = {
+  app: {
+    name: 'cep-api',
+    version: process.env.VERSION,
+    description: 'cep-api in node with expressjs',
+    host: `localhost:${process.env.PORT}`,
+    port: process.env.PORT,
+    db: 'mongodb',
+    ready: 'true',
+  },
+};

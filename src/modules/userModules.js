@@ -6,8 +6,8 @@ import { userValidator, loginValidator } from '../errors/errors';
 import User from '../models/Users';
 
 export const create = async (user) => {
+  const IResult = { success: true, data: '', errors: [] };
   try {
-    const IResult = { success: true, data: '', errors: [] };
     const valid = await userValidator(user);
 
     if (valid.success) {
@@ -29,13 +29,17 @@ export const create = async (user) => {
     IResult.errors = valid.errors;
     return IResult;
   } catch (e) {
-    console.log(e);
+    if (e instanceof Error) {
+      IResult.success = false;
+      IResult.errors.push(e.message);
+      return IResult;
+    }
   }
 };
 
 export const login = async (user) => {
+  const IResult = { success: true, data: '', errors: [] };
   try {
-    const IResult = { success: true, data: '', errors: [] };
     const valid = await loginValidator(user);
 
     if (valid.success) {
@@ -54,6 +58,10 @@ export const login = async (user) => {
     IResult.errors = valid.errors;
     return IResult;
   } catch (e) {
-    console.log(e);
+    if (e instanceof Error) {
+      IResult.success = false;
+      IResult.errors.push(e.message);
+      return IResult;
+    }
   }
 };
