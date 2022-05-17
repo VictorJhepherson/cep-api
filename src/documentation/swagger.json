@@ -1,0 +1,158 @@
+{
+  "swagger": "2.0",
+    "info": {
+      "title": "CEP - API",
+      "description": "API for ZipCode(CEP) query",
+      "version": "1.0"
+    },
+    "host": "localhost:4000",
+    "basePath": "/",
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/users/": {
+        "post": {
+          "summary": "Create",
+          "description": "Create a new User",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "User",
+              "description": "Create a new User",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "username": "User Name",
+                  "email": "userEmail@email.com",
+                  "password": "userPassword"
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Created"
+            },
+            "400": {
+              "description": "Erro.message"
+            }
+          }
+        }
+      },
+      "/users/login": {
+        "post": {
+          "summary": "Login",
+          "description": "Login user",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Login",
+              "description": "Login user",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "email": "userEmail@email.com",
+                  "password": "userPassword"
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Login success"
+            },
+            "400": {
+              "description": "Erro.message"
+            }
+          }
+        }
+      },
+      "/cep/": {
+        "post": {
+          "summary": "Find",
+          "description": "Find CEP",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "Cep",
+              "description": "Find CEP",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cep": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "cep": "zipcode"
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Find success"
+            },
+            "400": {
+              "description": "Erro.message"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Users": {
+        "type": "object",
+        "properties": {
+          "username": {
+              "type": "string"
+          },
+          "email": {
+              "type": "string"
+          },
+          "password": {
+              "type": "string"
+          }
+        }
+      },
+      "Login": {
+        "type": "object",
+        "properties": {
+          "email": {
+              "type": "string"
+          },
+          "password": {
+              "type": "string"
+          }
+        }
+      },
+      "Cep": {
+        "type": "object",
+        "properties": {
+          "cep": {
+              "type": "string"
+          }
+        }
+      }
+    }
+}

@@ -2,6 +2,8 @@ import express from 'express';
 const app = express();
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import swaggerUI from 'swagger-ui-express';
+import swaggerFile from '../src/documentation/swagger.json';
 
 import rotaUser from './routes/userRoutes';
 import rotaCep from './routes/cepRoutes';
@@ -10,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerFile));
 app.use('/users', rotaUser);
 app.use('/cep', rotaCep);
 
