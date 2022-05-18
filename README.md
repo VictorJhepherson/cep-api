@@ -26,7 +26,7 @@ O segundo comando irá realizar o build da aplicação criando o diretório dist
 npm run build
 ```
 
-O terceito comando pode ser dividido em 2, onde um será para rodar em desenvolvimento(dev) e outro para exibição(start) da aplicação.
+O terceiro comando pode ser dividido em 2, onde um será para rodar em desenvolvimento(dev) e outro para exibição(start) da aplicação.
 
 ``` bash
 npm run dev or npm run start
